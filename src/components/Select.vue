@@ -632,8 +632,8 @@
       if (typeof this.value !== "undefined" && this.isTrackingValues) {
         this.setInternalValueFromOptions(this.value)
       }
-
-      this.$on('option:created', this.pushTag)
+      
+      
     },
 
     methods: {
@@ -660,6 +660,7 @@
         if (!this.isOptionSelected(option)) {
           if (this.taggable && !this.optionExists(option)) {
             this.$emit('option:created', option);
+            this.pushTag(option);
           }
           if (this.multiple) {
             option = this.selectedValue.concat(option)
